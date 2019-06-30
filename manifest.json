@@ -1,0 +1,25 @@
+{
+  "manifest_version": 1,
+
+  "name": "Chess.com suggest best move bot",
+  "description": "This extension implements a bot to suggest best move on chess.com",
+  "version": "1.0",
+  "browser_action": {
+   "default_icon": "img/icon.png",
+   "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*.chess.com/*", "https://*.chess.com/*"], 
+      "js": ["js/bot.js"]
+    }
+  ],
+  "permissions": [
+   "http://*.chess.com/*",
+   "activeTab"
+   ],
+   "web_accessible_resources": ["js/intercept.js"]
+}
